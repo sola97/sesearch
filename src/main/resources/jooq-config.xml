@@ -1,0 +1,47 @@
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.14.0.xsd">
+    <!-- Configure the database connection here -->
+    <jdbc>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <!--                        jdbc:mysql://<host>:<port>/<database_name>-->
+        <url>jdbc:mysql://localhost:3306/social_engineering</url>
+        <user>db_user</user>
+        <password>db_passwd</password>
+    </jdbc>
+
+    <generator>
+        <strategy>
+            <name>io.github.sola97.sesearch.generator.JPrefixGeneratorStrategy</name>
+        </strategy>
+        <database>
+            <name>org.jooq.meta.mysql.MySQLDatabase</name>
+            <includes>weibo|qq</includes>
+            <excludes>
+                <!--                UNUSED_TABLE                  # This table (unqualified name) should not be generated-->
+                <!--                | PREFIX_.*                   # Objects with a given prefix should not be generated-->
+                <!--                | SECRET_SCHEMA\.SECRET_TABLE # This table (qualified name) should not be generated-->
+                <!--                | SECRET_ROUTINE # This routine (unqualified name) ...-->
+            </excludes>
+            <!--            <inputSchema>weibo|qq</inputSchema>-->
+        </database>
+
+        <!-- Generation flags: See advanced configuration properties -->
+        <generate>
+            <daos>true</daos>
+            <pojos>true</pojos>
+            <javaTimeTypes>true</javaTimeTypes>
+            <springAnnotations>false</springAnnotations>
+        </generate>
+
+        <target>
+            <!-- The destination package of your generated classes (within the
+                 destination directory)
+
+                 jOOQ may append the schema name to this package if generating multiple schemas,
+                 e.g. org.jooq.your.packagename.schema1
+                      org.jooq.your.packagename.schema2 -->
+            <packageName>io.github.sola97.sesearch.dataobject</packageName>
+            <!-- The destination directory of your generated classes -->
+            <directory>src/main/java</directory>
+        </target>
+    </generator>
+</configuration>
