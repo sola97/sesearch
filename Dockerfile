@@ -3,7 +3,7 @@ LABEL maintainer="sola97 <my@sora.vip> "
 WORKDIR /
 RUN git clone https://github.com/sola97/sesearch.git && \
     cd sesearch && \
-    mvn --no-transfer-progress package && \
+    mvn --no-transfer-progress package -Dmaven.test.skip=true && \
     mv target/sesearch*.jar /app.jar && \
     chmod +x /app.jar
 
