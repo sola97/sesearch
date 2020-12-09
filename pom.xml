@@ -15,7 +15,7 @@
     <description>QQ微博查绑</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
         <docker.image.prefix>sola97</docker.image.prefix>
         <docker.repostory>registry.hub.docker.com</docker.repostory>
     </properties>
