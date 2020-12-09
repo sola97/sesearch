@@ -14,7 +14,7 @@ public class SearchController {
     @Autowired
     SearchService searchService;
 
-    @GetMapping(value = "/hello")
+    @GetMapping(value = "/")
     public String hello() {
         return "It works";
     }
